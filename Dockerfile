@@ -9,9 +9,9 @@ RUN  apt-get update \
      && rm -rf /var/lib/apt/lists/* \
      && wget --quiet https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh -O /usr/sbin/wait-for-it.sh \
      && chmod +x /usr/sbin/wait-for-it.sh
-
-ADD package.json package-lock.json /
+ADD package.json /
 RUN npm install
-COPY index.cjs .
 
+COPY index.cjs .
+EXPOSE 3000
 CMD ["node", "index.cjs"]
