@@ -52,7 +52,7 @@ app.get('/', async (req, res) => {
   let dd = String(today.getDate()).padStart(2, '0');
   let mm = String(today.getMonth() + 1).padStart(2, '0');
   let yyyy = String(today.getFullYear());
-  let PATH = `${mm}-${dd}-${yyyy}.json`;
+  let PATH = `./cache/${mm}-${dd}-${yyyy}.json`;
   let data;
   if (fs.existsSync(PATH)) {
     console.log(`File ${PATH} found, using cache to resolve the request.`);
